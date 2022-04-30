@@ -17,7 +17,7 @@ return (<div >
     {<div ref={ref} >
         <h4 className="p-9" style={{ display: 'inline', float: 'middle' }}>INVOICE</h4> <br /><br />
 
-        <h4 className="p-9" style={{ display: 'inline', float: 'middle' }}> Issue Date:{bill && bill.date.slice(0, 10)}</h4>
+        <h4 className="p-9" style={{ display: 'inline', float: 'middle' }}> Issue Date: {bill && bill.date.slice(0, 10)}</h4>
         <h4>Customer Name : {customer && customer.name}</h4> <hr />
         {bill && <table style={{ width: '40%', backgroundColor: '#B0E0E6' }} className='table table-striped shadow border rounded'>
             <thead>
