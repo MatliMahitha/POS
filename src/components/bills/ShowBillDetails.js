@@ -1,16 +1,34 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Pdf from "react-to-pdf";
-
+import emailjs from 'emailjs-com'
+import Swal from "sweetalert2";
 const ref = React.createRef();
 
 const ShowBillDetails = (props) => {
     const { _id } = props.match.params
     const bills = useSelector(state => state.bills.data)
     const bill = (bills.length > 0 && bills.find(ele1 => ele1._id === _id));
+    console.log('to',bill.total)
     const products = useSelector(state => state.products.data)
     const customers = useSelector(state => state.customers.data)
     const customer = (customers.length > 0 && customers.find(ele1 => ele1._id === bill.customer))
+
+    const sendMail=()=>{
+        emailjs.send("service_tok4ts5","template_rog9csh",{
+            to_name: customer.name,
+            Bill_Total: bill.total.toString(),
+            to_email: customer.email
+            },"0rYBfGD31I4G1QB0r")
+            .then((res)=>{
+                Swal.fire(
+                    'Email Sent!',
+                    'You clicked the button!',
+                    'success'
+                  )
+            })
+            .catch((err)=>alert(err.message))
+        }
 
 return (<div >
 
@@ -50,9 +68,11 @@ return (<div >
     <div className="m-3">
         <h2>Final Total : {bill && bill.total}</h2>
     </div>
+    
     <Pdf targetRef={ref} filename="bill.pdf">
         {({ toPdf }) => <button onClick={toPdf} className="btn btn-primary mt-2">Generate Pdf</button>}
-    </Pdf>
+    </Pdf> <br/>
+    <button  className="btn btn-primary m-2" onClick={sendMail}>Send Mail</button>
     
 </div>
 )
