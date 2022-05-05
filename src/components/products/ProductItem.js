@@ -38,7 +38,7 @@ const ProductItem = (props) => {
                     <button onClick={handletoggle}>cancel</button></div>)
                 : (
 
-                    <div className="m-3" scope="row">
+                    <div className="m-3" >
 
                         <div className="row">
                             <div className="col-2">

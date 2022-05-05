@@ -25,10 +25,8 @@ const CustomersItem = (props) => {
                     <button className='d-inline btn btn-dark mt-3' onClick={handleToggle}>Cancel</button>
                 </div>
               :
-                    <div  className="m-3" scope="row">
-                         
-                        
-                        <div className="row" >
+                    <div  className="m-3" >
+                         <div className="row" >
                             <div className="col-2">
                             <h4 className="d-inline">{obj.name}  </h4>
                             </div>
@@ -63,3 +61,5 @@ const CustomersItem = (props) => {
 }
 
 export default CustomersItem
+                        
+                        

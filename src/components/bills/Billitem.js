@@ -12,9 +12,7 @@ const Billitem = (props) => {
     console.log('customername',customerName)
    
      return (
-        
-
-        <div  className="m-3" scope="row">
+        <div  className="m-3" >
             <div className="row">
                 <div className="col-3">
                  <h3 className="d-inline " >{ customerName && customerName.name}</h3>
@@ -43,3 +41,5 @@ const Billitem = (props) => {
     )
 }
 export default Billitem
+
+        

@@ -6,9 +6,6 @@ const GoogleChart = (props) => {
   const bills = useSelector(state => state.bills.data)
 
   const findTotal = (arr) => {
-    {/* let tot = 0
-     arr.forEach(ele => tot += ele.total)
-     return tot*/}
     return arr.reduce((a, b) => { return a+b.total},0)
   }
   const result = _.groupBy(bills, 'date')
